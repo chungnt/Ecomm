@@ -1,9 +1,9 @@
-﻿using Dapper.Contrib.Extensions;
-using Ecomm.Data.Dto.Product;
+﻿using Ecomm.Data.Dto.Product;
 using Ecomm.Data.Models;
 using Ecomm.Data.Entities;
 using AutoMapper;
 using Dapper;
+using Dapper.Database.Extensions;
 
 namespace Ecomm.Data.Repositories.ProductRepository
 {
@@ -29,17 +29,19 @@ namespace Ecomm.Data.Repositories.ProductRepository
             return (items.Count(), items.ToList());
         }
 
-        public Task<Product> InsertAsync(Product dto)
+        public async Task<bool> InsertAsync(Product entity)
+        {
+            using var conn = _context.CreateConnection();
+            entity.CreatedDate = DateTime.UtcNow;
+            return await conn.InsertAsync(entity);
+        }
+
+        public Task<bool> UpdateAsync(Product entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Product> UpdateAsync(Product dto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Product> DeleteAsync(Product dto)
+        public Task<bool> DeleteAsync(Product entity)
         {
             throw new NotImplementedException();
         }

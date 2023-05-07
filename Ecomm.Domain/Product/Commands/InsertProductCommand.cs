@@ -11,14 +11,21 @@ using System.Threading.Tasks;
 
 namespace Ecomm.Domain.Product.Commands
 {
-    public class InsertProductCommand : IRequest<ProductDto>
+    public class InsertProductCommand : IRequest<bool>
     {
+        public InsertProductCommand(string sku, string name, string? desc, string user)
+        {
+            Sku = sku;
+            Name = name;
+            Description = desc;
+            User = user;
+        }
         public string Sku { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }
         public string User { get; set; } = string.Empty;
     }
-    public class InsertProductCommandHandler : IRequestHandler<InsertProductCommand, ProductDto>
+    public class InsertProductCommandHandler : IRequestHandler<InsertProductCommand, bool>
     {
         private IProductRepository _productRepository; 
         private readonly IMapper _mapper;
@@ -28,16 +35,15 @@ namespace Ecomm.Domain.Product.Commands
             _mapper = mapper;
         }
 
-        public async Task<ProductDto> Handle(InsertProductCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(InsertProductCommand request, CancellationToken cancellationToken)
         {
-            var item = await _productRepository.InsertAsync(new Data.Entities.Product() 
+            return await _productRepository.InsertAsync(new Data.Entities.Product() 
             { 
                 Name = request.Name,
                 Description = request.Description,
                 Sku = request.Sku,
                 CreatedBy = request.User
             });
-            return _mapper.Map<ProductDto>(item);
         }
     }
 }

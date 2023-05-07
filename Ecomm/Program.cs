@@ -1,6 +1,7 @@
 using AutoMapper;
 using Ecomm.Data;
 using Ecomm.Data.Mappers;
+using Ecomm.Data.Repositories.ProductRepository;
 using FluentMigrator.Runner;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -21,6 +22,7 @@ builder.Services.AddFluentMigratorCore().ConfigureRunner(rb => rb
                 .AddLogging(lb => lb.AddFluentMigratorConsole());
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 builder.Services.AddAutoMapper(cfg =>
 {

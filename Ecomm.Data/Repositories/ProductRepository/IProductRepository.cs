@@ -13,8 +13,8 @@ namespace Ecomm.Data.Repositories.ProductRepository
     {
         Task<Product> GetByIdAsync(int id);
         Task<(int TotalCount, IEnumerable<Product> Items)> SearchAsync(SearchPagingModel paging, ProductSearchFilterModel filter);
-        Task<Product> InsertAsync(Product dto);
-        Task<Product> UpdateAsync(Product dto);
-        Task<Product> DeleteAsync(Product dto);
+        Task<bool> InsertAsync(Product dto);
+        Task<bool> UpdateAsync(Product dto);
+        Task<bool> DeleteAsync(Product dto);
     }
 }

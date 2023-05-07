@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,8 +18,9 @@ namespace Ecomm.Data
         {
             _configuration = configuration;
             _connectionString = _configuration.GetConnectionString("EcommDbConnection");
+            Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
         }
         public IDbConnection CreateConnection()
-            => new SqlConnection(_connectionString);
+            => new NpgsqlConnection(_connectionString);
     }
 }
