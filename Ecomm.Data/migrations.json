@@ -1,0 +1,10 @@
+{
+    "ConnectionProjectName": "Ecomm",
+    "ConnectionName": "EcommDbConnection",
+    "FluentMigrationToolPath": ".\\packages\\FluentMigrator.Console.3.2.7\\tools\\net461\\x86\\Migrate.exe",
+    "DbProvider": "SqlServer",
+    "DbProviderHelpUrl": "https://fluentmigrator.github.io/articles/runners/runner-console.html#--provider---dbtype---dbvalue-required",
+    "MigrationFolder": "Migrations",
+    "ScriptsFolder": "Scripts",
+    "TimeFormat": "yyyyMMddHHmmss"
+}
