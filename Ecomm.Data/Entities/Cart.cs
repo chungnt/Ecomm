@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ecomm.Data.Entities
+﻿namespace Ecomm.Data.Entities
 {
     public class Cart : BaseEntity
     {

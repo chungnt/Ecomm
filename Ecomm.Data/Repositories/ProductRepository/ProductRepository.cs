@@ -1,9 +1,7 @@
-﻿using Ecomm.Data.Dto.Product;
-using Ecomm.Data.Models;
-using Ecomm.Data.Entities;
-using AutoMapper;
-using Dapper;
+﻿using Dapper;
 using Dapper.Database.Extensions;
+using Ecomm.Data.Entities;
+using Ecomm.Data.Models;
 
 namespace Ecomm.Data.Repositories.ProductRepository
 {

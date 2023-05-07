@@ -3,11 +3,6 @@ using Ecomm.Data.Dto.Product;
 using Ecomm.Data.Models;
 using Ecomm.Data.Repositories.ProductRepository;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ecomm.Domain.Product.Queries
 {
@@ -34,10 +29,10 @@ namespace Ecomm.Domain.Product.Queries
         public async Task<SearchModel<ProductDto>> Handle(SearchProductQuery request, CancellationToken cancellationToken)
         {
             var results = await _productRepository.SearchAsync(new SearchPagingModel(), new ProductSearchFilterModel());
-            
+
             return new SearchModel<ProductDto>()
             {
-                Paging = request.Paging, 
+                Paging = request.Paging,
                 Filters = request.Filters,
                 Items = _mapper.Map<IEnumerable<Data.Entities.Product>, IEnumerable<ProductDto>>(results.Items),
                 Total = results.TotalCount

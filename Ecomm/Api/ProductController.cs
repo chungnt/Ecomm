@@ -2,7 +2,6 @@
 using Ecomm.Domain.Product.Commands;
 using Ecomm.Domain.Product.Queries;
 using Ecomm.Models;
-using Ecomm.Models.Base;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

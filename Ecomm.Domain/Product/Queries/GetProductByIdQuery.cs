@@ -2,11 +2,6 @@
 using Ecomm.Data.Dto.Product;
 using Ecomm.Data.Repositories.ProductRepository;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ecomm.Domain.Product.Queries
 {
@@ -20,7 +15,7 @@ namespace Ecomm.Domain.Product.Queries
     }
     public class GetProductByIdHandler : IRequestHandler<GetProductByIdQuery, ProductDto>
     {
-        private readonly IProductRepository _productRepository; 
+        private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
         public GetProductByIdHandler(IProductRepository productRepository, IMapper mapper)
         {

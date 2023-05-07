@@ -1,13 +1,6 @@
 ﻿using AutoMapper;
-using Ecomm.Data.Dto.Product;
 using Ecomm.Data.Repositories.ProductRepository;
-using Ecomm.Domain.Product.Queries;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ecomm.Domain.Product.Commands
 {
@@ -27,7 +20,7 @@ namespace Ecomm.Domain.Product.Commands
     }
     public class InsertProductCommandHandler : IRequestHandler<InsertProductCommand, bool>
     {
-        private IProductRepository _productRepository; 
+        private IProductRepository _productRepository;
         private readonly IMapper _mapper;
         public InsertProductCommandHandler(IProductRepository productRepository, IMapper mapper)
         {
@@ -37,8 +30,8 @@ namespace Ecomm.Domain.Product.Commands
 
         public async Task<bool> Handle(InsertProductCommand request, CancellationToken cancellationToken)
         {
-            return await _productRepository.InsertAsync(new Data.Entities.Product() 
-            { 
+            return await _productRepository.InsertAsync(new Data.Entities.Product()
+            {
                 Name = request.Name,
                 Description = request.Description,
                 Sku = request.Sku,
