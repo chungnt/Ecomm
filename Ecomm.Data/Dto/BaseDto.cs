@@ -1,6 +1,6 @@
 ﻿namespace Ecomm.Data.Dto
 {
-    public class BaseDto
+    public record BaseDto
     {
         public int Id { get; set; }
         public DateTime CreatedDate { get; set; }

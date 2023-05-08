@@ -2,7 +2,7 @@
 
 namespace Ecomm.Data.Entities
 {
-    public class BaseEntity
+    public record BaseEntity
     {
         [Column("created_date")]
         public DateTime CreatedDate { get; set; }

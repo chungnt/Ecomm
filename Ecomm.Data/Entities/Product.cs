@@ -5,7 +5,7 @@ namespace Ecomm.Data.Entities
 {
     [Table("product")]
 
-    public class Product : BaseEntity
+    public record Product : BaseEntity
     {
         [Column("id")]
         [Key]

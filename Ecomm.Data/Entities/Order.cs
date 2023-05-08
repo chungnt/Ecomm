@@ -1,6 +1,6 @@
 ﻿namespace Ecomm.Data.Entities
 {
-    public class Order
+    public record Order
     {
     }
 }

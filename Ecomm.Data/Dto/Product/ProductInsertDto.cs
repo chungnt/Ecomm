@@ -1,6 +1,6 @@
 ﻿namespace Ecomm.Data.Dto.Product
 {
-    public class ProductInsertDto
+    public record ProductInsertDto
     {
         public string Sku { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
